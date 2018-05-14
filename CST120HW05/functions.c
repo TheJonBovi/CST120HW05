@@ -107,7 +107,7 @@ void caesar_encrypt(int const key, char const* const plaintext, char* const ciph
 	strcpy(ciphertext, temp_text);
 }
 
-void caesar_decrypt(int const key, char const* const ciphertext, char* const plaintext)
+void caesar_decrypt(int const key, char* const plaintext, char const* const ciphertext)
 {
 	caesar_encrypt(-key, ciphertext, plaintext);
 	to_lower(plaintext);
@@ -190,7 +190,7 @@ void decryption()
 	get_text(ciphertext);
 
 	trf_decrypt(ciphertext);
-	caesar_decrypt(key, ciphertext, plaintext);
+	caesar_decrypt(key, plaintext, ciphertext);
 
 	printf("The plaintext is: %s\n\n", plaintext);
 }

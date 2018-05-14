@@ -18,7 +18,7 @@ void to_lower(char* text);
 
 void caesar_encrypt(int const key, char const* const plaintext, char* const ciphertext);
 
-void caesar_decrypt(int const key, char const* const ciphertext, char* const plaintext);
+void caesar_decrypt(int const key, char* const plaintext, char const* const ciphertext);
 
 void trf_encrypt(char* const text);
 
