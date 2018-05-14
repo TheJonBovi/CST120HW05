@@ -8,7 +8,7 @@
 #define UPPER_MIN 65
 #define UPPER_MAX 90
 
-void get_key(int* input);
+void get_key(int* const key);
 
 void get_text(char* input);
 
