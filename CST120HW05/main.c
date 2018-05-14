@@ -8,22 +8,19 @@
 #include "functions.h"
 
 
-enum Options {k_get_key = 1, k_encrypt, k_decrypt, k_exit};
+enum Options {k_encrypt = 1, k_decrypt, k_exit};
 
 void main(void)
 {
 	int program_run = 1;
-	int key_flag = 0;
-	int key = 0;
 	int choice;
 
 	while (program_run)
 	{
 		printf("*************Main Menu*************\n\n");
-		printf(" 1 - Enter a Key\n");
-		printf(" 2 - Encryption \n");
-		printf(" 3 - Decryption \n");
-		printf(" 4 - Exit\n\n");
+		printf(" 1 - Encryption \n");
+		printf(" 2 - Decryption \n");
+		printf(" 3 - Exit\n\n");
 
 		printf("Enter your choice and press return: ");
 
@@ -32,31 +29,12 @@ void main(void)
 
 		switch (choice)
 		{
-		case k_get_key:
-			get_key(&key);
-			key_flag = 1;
-			break;
-
 		case k_encrypt:
-			if (key_flag)
-			{
-				encryption(key);
-			}
-			else
-			{
-				printf("Enter a key first!\n\n");
-			}
+			encryption();
 			break;
 
 		case k_decrypt:
-			if (key_flag)
-			{
-				decryption(key);
-			}
-			else
-			{
-				printf("Enter a key first!\n\n");
-			}
+			decryption();
 			break;
 
 		case k_exit:
