@@ -7,7 +7,6 @@
 #include <stdio.h>  // NOLINT
 #include "functions.h"
 
-
 enum Options {k_encrypt = 1, k_decrypt, k_exit};
 
 void main(void)
