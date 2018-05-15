@@ -130,6 +130,7 @@ void trf_encrypt(char* const text)
 		temp_text_size = strlen(temp_text);
 	}
 
+	// Make new copy to switch characters to
 	char final_text[MAXSIZE];
 	strcpy(final_text, temp_text);
 
@@ -154,6 +155,7 @@ void trf_decrypt(char* const text)
 	size_t const temp_text_size = strlen(temp_text);
 	size_t const rail_size = strlen(temp_text) / 3;
 
+	// Unwind similar to inverse of trf_encrypt
 	for (size_t i = 0; i < rail_size; i++)
 	{
 		temp_text[3 * i] = text[i];
