@@ -59,7 +59,7 @@ void get_text(char* const input)
 	printf("\n");
 }
 
-void to_upper(char* text)
+void to_upper(char* const text)
 {
 	char temp_text[MAXSIZE];
 	strcpy(temp_text, text);
@@ -76,7 +76,7 @@ void to_upper(char* text)
 	strcpy(text, temp_text);
 }
 
-void to_lower(char* text)
+void to_lower(char* const text)
 {
 	char temp_text[MAXSIZE];
 	strcpy(temp_text, text);
@@ -122,7 +122,7 @@ void trf_encrypt(char* const text)
 
 	size_t temp_text_size = strlen(temp_text);
 
-	// Make sure length is divisible by 3 with X's
+	// Make sure length is divisible by 3 by adding X's
 	while (temp_text_size % 3)
 	{
 		temp_text[temp_text_size] = 'X';
@@ -153,6 +153,7 @@ void trf_decrypt(char* const text)
 	strcpy(temp_text, text);
 
 	size_t const temp_text_size = strlen(temp_text);
+	// TODO: What if this has remainder? IE: what if input not even divisible by 3!!
 	size_t const rail_size = strlen(temp_text) / 3;
 
 	// Unwind similar to inverse of trf_encrypt

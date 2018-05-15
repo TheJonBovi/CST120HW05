@@ -12,9 +12,9 @@ void get_key(int* const key);
 
 void get_text(char* input);
 
-void to_upper(char* text);
+void to_upper(char* const text);
 
-void to_lower(char* text);
+void to_lower(char* const text);
 
 void caesar_encrypt(int const key, char const* const plaintext, char* const ciphertext);
 
