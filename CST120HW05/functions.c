@@ -64,6 +64,7 @@ void to_upper(char* text)
 	char temp_text[MAXSIZE];
 	strcpy(temp_text, text);
 
+	// If a character is lowercase, subtract difference to get uppercase
 	for (size_t i = 0; i < strlen(text); i++)
 	{
 		if (temp_text[i] >= LOWER_MIN && temp_text[i] <= LOWER_MAX)
@@ -80,6 +81,7 @@ void to_lower(char* text)
 	char temp_text[MAXSIZE];
 	strcpy(temp_text, text);
 
+	// If a character is uppercase, add difference to value to get lowercase
 	for (size_t i = 0; i < strlen(text); i++)
 	{
 		if (temp_text[i] >= UPPER_MIN && temp_text[i] <= UPPER_MAX)
@@ -101,7 +103,7 @@ void caesar_encrypt(int const key, char const* const plaintext, char* const ciph
 
 	for (size_t i = 0; i < temp_text_size; i++)
 	{
-		temp_text[i] = (((temp_text[i] - LOWER_MIN) + key) % 26 + 26) % 26 + UPPER_MIN;
+		temp_text[i] = ((temp_text[i] - LOWER_MIN + key) % 26 + 26) % 26 + UPPER_MIN;
 	}
 
 	strcpy(ciphertext, temp_text);
@@ -120,7 +122,7 @@ void trf_encrypt(char* const text)
 
 	size_t temp_text_size = strlen(temp_text);
 
-	// Make sure length is divisible by 3
+	// Make sure length is divisible by 3 with X's
 	while (temp_text_size % 3)
 	{
 		temp_text[temp_text_size] = 'X';
@@ -133,7 +135,6 @@ void trf_encrypt(char* const text)
 
 	size_t const rail_size = strlen(final_text) / 3;
 
-	// Put elements of string on corresponding rail
 	for (size_t i = 0; i < rail_size; i++)
 	{
 		final_text[i] = temp_text[3 * i];
@@ -153,7 +154,6 @@ void trf_decrypt(char* const text)
 	size_t const temp_text_size = strlen(temp_text);
 	size_t const rail_size = strlen(temp_text) / 3;
 
-	// Break into three strings
 	for (size_t i = 0; i < rail_size; i++)
 	{
 		temp_text[3 * i] = text[i];
